@@ -5,3 +5,6 @@ Para traer la lista de contactos, los chats de cada contacto y enviar mensajes
 
 ## Antes De empezar
 Coloque la url del servidor, ya sea que este en la nuve, o que use otro método
+
+Ejm: si su url es `https://mi-servidor.com`
+coloque solo `mi-servidor.com`
