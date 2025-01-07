@@ -27,12 +27,12 @@ const setBaseUrl = ()=>{
 
 
 async function traerChat(phoneNumber){
-  const chat = await fetch(`${BaseUrl}/api/whatsapp/chats/${phoneNumber}`).then( response => response.json() );
+  const chat = await fetch(`https://${BaseUrl}/api/whatsapp/chats/${phoneNumber}`).then( response => response.json() );
   showChat( chat.messages );
 }
 
 async function traerListContact(){
-  const contacts = await fetch(`${BaseUrl}/api/whatsapp/contacts`).then( response => response.json() );
+  const contacts = await fetch(`https://${BaseUrl}/api/whatsapp/contacts`).then( response => response.json() );
   showListContacts( contacts );
 }
 
@@ -88,8 +88,7 @@ function showChat( messages ){
 }
 
 async function sendMessage( to, message ){
-  console.log(to, message)
-  await fetch(`${BaseUrl}/api/whatsapp/sendMessage`, {
+  await fetch(`https://${BaseUrl}/api/whatsapp/sendMessage`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // Indica que el body está en formato JSON
@@ -105,9 +104,7 @@ function connectToWebSockets() {
     return;
   }
 
-  const socket = new WebSocket( `ws://${BaseUrl}/ws` );
-
-  if(socket.readyState == 0) return alert('Hubo un error, puede que la url no sea la correcta, revise bien porfavor');
+  const socket = new WebSocket( `wss://${BaseUrl}/ws` );
 
   traerListContact();
   socket.onmessage = ( event ) => {
