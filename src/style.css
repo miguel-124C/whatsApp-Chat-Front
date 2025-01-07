@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+}
+
+aside{
+    
+    height: 100vh;
+    min-width: 400px;
+    background: #111b21;
+    color: #ffffff;
+    padding-right: 0.8rem;
+    overflow-y: scroll;
+}
+
+aside h1{
+    padding-left: 0.8rem;
+    padding-top: 0.8rem;
+    padding-bottom: 1.8rem;
+}
+
+.list-contact .contact {
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0.8rem;
+    display: flex;
+    gap: 15px;
+    height: 85px;
+    margin-top: 15px;
+}
+.list-contact .contact:hover{
+    background: #44444477;
+}
+.list-contact .chat-selected{
+    background: #444444;
+}
+
+.icon-contact{
+    background: green;
+    height: 100%;
+    width: 75px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact .name-contact{
+    width: 325px;
+    border-bottom: 1px rgb(161, 161, 161) solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content-chat-history{
+    height: 100vh;
+    flex-grow: 1;
+    background: #9e9e9e;
+
+    display: none;
+    grid-template-rows: 90px 1fr 80px;
+}
+
+header{
+    display: flex;
+    gap: 12px;
+    padding: 5px 0.8rem;
+    background: #444444;
+}
+
+#chat{
+    /* padding: 5rem; Pantalla grande */
+    overflow: auto;
+    padding: 1rem 2rem 0;
+}
+
+.content-message{
+    display: flex;
+    width: 100%;
+    margin-bottom:  0.8rem;
+}
+.message{
+    color: white;
+    max-width: 400px;
+    width: max-content;
+
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.3em;
+}
+.message:hover{
+    /* Mostar las reacciones */
+}
+.message-contact{
+    background: rgb(26, 26, 26);
+}
+.message-me{
+    background: rgb(19, 44, 7);
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    background: #444444;
+    padding: 13px 10px;
+}
+
+footer form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 8px;
+}
+form .btn-more, form .btn-micro{
+    width: 50px;
+}
+
+form .input-write-message{
+    flex-grow: 1;
+    font-size: 1.4em;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.btn-more, .btn-send{
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.btn-more{
+    color: rgb(12, 42, 144);
+}
+.btn-send{
+    background: rgb(85, 218, 85);
+    padding: 0 15px;
+}
