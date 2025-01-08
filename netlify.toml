@@ -1,2 +1,2 @@
 [build]
-  command = "echo \"const ENVS = {BACK_URL:"${BACK_URL}",SOCKET_URL:"${SOCKET_URL}"};\" > env.js && some-other-build-commands"
+  publish = "."
