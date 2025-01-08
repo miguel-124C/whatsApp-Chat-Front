@@ -5,34 +5,19 @@ const formMessage = document.querySelector('.frm-message');
 
 const chatHtml = document.getElementById('chat');
 
+const backUrl = ENVS.BACK_URL;
+const socketUrl = ENVS.SOCKET_URL;
+
 let contactFocus = null;
-
-let BaseUrl = null;
-
-const setBaseUrl = ()=>{
-
-  if (localStorage.getItem('BaseUrl')) {
-    BaseUrl = localStorage.getItem('BaseUrl');
-    return true;
-  }
-
-  BaseUrl = prompt('Añadir el link del back');
-  if(BaseUrl){
-    localStorage.setItem('BaseUrl', BaseUrl);
-    return true;
-  }
-
-  return false;
-}
 
 
 async function traerChat(phoneNumber){
-  const chat = await fetch(`https://${BaseUrl}/api/whatsapp/chats/${phoneNumber}`).then( response => response.json() );
+  const chat = await fetch(`${backUrl}/api/whatsapp/chats/${phoneNumber}`).then( response => response.json() );
   showChat( chat.messages );
 }
 
 async function traerListContact(){
-  const contacts = await fetch(`https://${BaseUrl}/api/whatsapp/contacts`).then( response => response.json() );
+  const contacts = await fetch(`${backUrl}/api/whatsapp/contacts`).then( response => response.json() );
   showListContacts( contacts );
 }
 
@@ -88,7 +73,7 @@ function showChat( messages ){
 }
 
 async function sendMessage( to, message ){
-  await fetch(`https://${BaseUrl}/api/whatsapp/sendMessage`, {
+  await fetch(`${backUrl}/api/whatsapp/sendMessage`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // Indica que el body está en formato JSON
@@ -98,13 +83,7 @@ async function sendMessage( to, message ){
 }
 
 function connectToWebSockets() {
-
-  if (!setBaseUrl()){
-    alert('Ingrese el enpoint');
-    return;
-  }
-
-  const socket = new WebSocket( `wss://${BaseUrl}/ws` );
+  const socket = new WebSocket( socketUrl );
 
   traerListContact();
   socket.onmessage = ( event ) => {
