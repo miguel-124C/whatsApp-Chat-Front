@@ -91,7 +91,6 @@ function connectToWebSockets() {
   traerListContact();
   socket.onmessage = ( event ) => {
     const { type, payload } = JSON.parse(event.data);
-    console.log({ type, payload })
     if(type === 'on-contact-changed'){
       showListContacts( payload );
     }
