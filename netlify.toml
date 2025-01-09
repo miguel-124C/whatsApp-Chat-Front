@@ -1,3 +1,3 @@
 [build]
-  command = "npm run build && sed -i 's|BACK_URL|${BACK_URL}|g; s|SOCKET_URL|${SOCKET_URL}|g' dist/index.html"
+  command = "npm run build && sed -i 's|BACK_URL|${BACK_URL}|g; s|SOCKET_URL|${SOCKET_URL}|g' index.html"
   publish = "dist"
