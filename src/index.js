@@ -23,6 +23,7 @@ async function traerListContact(){
 }
 
 function showListContacts(contacts){
+  console.log('Mostrando contacts');
   listContacts.innerHTML = '';
   contacts.forEach(contact => {
     const lastMessage = contact.lastMessage;
@@ -53,6 +54,7 @@ function showListContacts(contacts){
 }
 
 function showChat( messages ){
+  console.log('Mostrando chat');
   chatHtml.innerHTML = '';
   messages.forEach((m)=>{
     const contentMessage = document.createElement('div');
