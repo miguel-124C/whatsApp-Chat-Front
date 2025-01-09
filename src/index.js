@@ -10,14 +10,15 @@ const socketUrl = ENVS.SOCKET_URL;
 
 let contactFocus = null;
 
-
 async function traerChat(phoneNumber){
-  const chat = await fetch(`${backUrl}/api/whatsapp/chats/${phoneNumber}`).then( response => response.json() );
+  const chat = await fetch(`${backUrl}/api/whatsapp/chats/${phoneNumber}`)
+    .then( response => response.json() );
   showChat( chat.messages );
 }
 
 async function traerListContact(){
-  const contacts = await fetch(`${backUrl}/api/whatsapp/contacts`).then( response => response.json() );
+  const contacts = await fetch(`${backUrl}/api/whatsapp/contacts`)
+    .then( response => response.json() );
   showListContacts( contacts );
 }
 
@@ -88,7 +89,8 @@ function connectToWebSockets() {
   traerListContact();
   socket.onmessage = ( event ) => {
     const { type, payload } = JSON.parse(event.data);
-    if(type === 'on-contact-new'){
+    console.log({ type, payload })
+    if(type === 'on-contact-changed'){
       showListContacts( payload );
     }
 

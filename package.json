@@ -1,0 +1,14 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "En este proyecto de javaScript vanila, se conecta con un socket y un server APIRest\r Para traer la lista de contactos, los chats de cada contacto y enviar mensajes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node src/config/create-env.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
