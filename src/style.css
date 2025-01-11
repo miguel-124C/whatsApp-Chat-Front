@@ -7,12 +7,13 @@
 
 body{
     display: flex;
+    position: relative;
 }
 
 aside{
     
     height: 100vh;
-    min-width: 400px;
+    min-width: 350px;
     background: #111b21;
     color: #ffffff;
     padding-right: 0.8rem;
@@ -34,6 +35,7 @@ aside h1{
     gap: 15px;
     height: 85px;
     margin-top: 15px;
+    overflow: hidden;
 }
 .list-contact .contact:hover{
     background: #44444477;
@@ -43,7 +45,7 @@ aside h1{
 }
 
 .icon-contact{
-    background: green;
+    background: #7e7e7e;
     height: 100%;
     width: 75px;
     border-radius: 50%;
@@ -54,13 +56,37 @@ aside h1{
 }
 
 .contact .name-contact{
-    width: 325px;
+    width: 275px;
     border-bottom: 1px rgb(161, 161, 161) solid;
+    display: grid;
+}
+.name-contact .view-message-contact{
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+}
+.view-message-contact .msg-contact{
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.view-message-contact span{
+    font-size: .8rem;
 }
 
 
 
 
+@media screen and (max-width: 800px) {
+    aside, .content-chat-history{
+        position: absolute;
+        width: 100%;
+    }
+    aside .contact .name-contact{ width: 100%; }
+    aside{ z-index: 500; }
+    .content-chat-history{ z-index: 400; }
+}
 
 
 
@@ -105,16 +131,31 @@ header{
     padding: 10px;
     border-radius: 10px;
     font-size: 1.3em;
+    display: flex;
+    gap: .5rem;
 }
 .message:hover{
     /* Mostar las reacciones */
 }
 .message-contact{
-    background: rgb(26, 26, 26);
+    background: rgb(26, 26, 26); 
 }
 .message-me{
     background: rgb(19, 44, 7);
 }
+.content-info-message{
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+}
+.content-info-message span{
+    font-size: .6em;
+}
+
+
+
+
 
 footer{
     display: flex;
@@ -154,4 +195,18 @@ form .input-write-message{
 .btn-send{
     background: rgb(85, 218, 85);
     padding: 0 15px;
+}
+
+.loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #444444aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
